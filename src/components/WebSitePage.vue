@@ -11,35 +11,56 @@
             ></v-text-field>
             <v-tabs
                     slot="extension"
-                    v-model="tabs"
+                    v-model="check"
                     centered
                     color="transparent"
                     slider-color="white"
             >
-                <v-tab v-for="n in 3" :key="n">
-                    Item {{ n }}
+                <v-tab v-for="(item,index) in tabs" :key="index">
+                    {{ item }}
                 </v-tab>
             </v-tabs>
         </v-toolbar>
 
-        <v-tabs-items v-model="tabs">
-            <v-tab-item v-for="n in 3" :key="n">
+        <v-tabs-items v-model="check">
+            <v-tab-item v-for="(item,index) in tabs" :key="index">
                 <v-card>
-                    <v-card-text>
-                        {{ text }}
-                    </v-card-text>
+                    <v-container fluid grid-list-md>
+                        <v-layout row wrap>
+                            <v-flex
+                                    v-for="(card,index) in cards"
+                                    :key="index"
+                                    xs6 md3 xl2>
+                                <v-card>
+                                    <v-img :src="card.src" height="200px"></v-img>
+                                    <v-card-title primary-title>
+                                        <div>
+                                            <div class="headline">{{card.title}}</div>
+                                            <span class="grey--text">1,000 miles of wonder</span>
+                                        </div>
+                                    </v-card-title>
+                                </v-card>
+                            </v-flex>
+                        </v-layout>
+                    </v-container>
                 </v-card>
             </v-tab-item>
         </v-tabs-items>
     </div>
 </template>
 <script>
+    import data from '../data/WebSiteData'
+
     export default {
         data() {
             return {
-                tabs: null,
-                text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
+                check: null,
+                tabs: ["常用站点", "知识学习", "娱乐摸鱼"],
+                // tabs: ["站点导航", "知识学习", "生活分享"],
+                cards: data,
             }
+        }, mounted() {
+            this.console.log(this.cards)
         }
     }
 </script>

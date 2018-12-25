@@ -7,9 +7,9 @@ import 'material-design-icons-iconfont/dist/material-design-icons.css'
 Vue.use(Vuetify, {
     iconfont: 'md',
     theme: {
-        primary: '#3f51b5',
+        primary: '#18a3ff',
         secondary: '#b0bec5',
-        accent: '#8c9eff',
-        error: '#b71c1c'
+        accent: '#61ffaa',
+        error: '#ed2745'
     }
 })
