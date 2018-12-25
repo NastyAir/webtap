@@ -1,28 +1,44 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+    <div id="app">
+        <v-app >
+            <v-toolbar dark color="primary">
+                <v-toolbar-side-icon></v-toolbar-side-icon>
+                <v-toolbar-title class="white--text">WebTap——工具箱</v-toolbar-title>
+                <v-spacer></v-spacer>
+                <v-btn icon>
+                    <v-icon>search</v-icon>
+                </v-btn>
+                <v-btn icon>
+                    <v-icon>apps</v-icon>
+                </v-btn>
+                <v-btn icon>
+                    <v-icon>refresh</v-icon>
+                </v-btn>
+                <v-btn icon>
+                    <v-icon>more_vert</v-icon>
+                </v-btn>
+            </v-toolbar>
+            <!--<img alt="Vue logo" src="./assets/logo.png">-->
+            <!--<HelloWorld msg="Welcome to Your Vue.js App"/>-->
+            <!--<router-link to="/helloworld">helloworld</router-link>-->
+            <!--<router-link to="/website">website</router-link>-->
+            <v-content>
+                <router-view></router-view>
+            </v-content>
+        </v-app>
+    </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
-export default {
-  name: 'app',
-  components: {
-    HelloWorld
-  }
-}
+    export default {
+        name: 'app',
+        components: {},
+        mounted: function () {
+            this.$router.push('/website')
+        }
+    }
 </script>
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+
 </style>
