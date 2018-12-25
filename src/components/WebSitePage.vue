@@ -32,11 +32,11 @@
                                     :key="index"
                                     xs6 md3 xl2>
                                 <v-card>
-                                    <v-img :src="card.src" height="200px"></v-img>
+                                    <v-img :src="card.pic" height="200px"></v-img>
                                     <v-card-title primary-title>
                                         <div>
-                                            <div class="headline">{{card.title}}</div>
-                                            <span class="grey--text">1,000 miles of wonder</span>
+                                            <div class="headline">{{card.name}}</div>
+                                            <span class="grey--text">{{card.remark}}</span>
                                         </div>
                                     </v-card-title>
                                 </v-card>
@@ -57,10 +57,8 @@
                 check: null,
                 tabs: ["常用站点", "知识学习", "娱乐摸鱼"],
                 // tabs: ["站点导航", "知识学习", "生活分享"],
-                cards: data,
+                cards: data(),
             }
-        }, mounted() {
-            this.console.log(this.cards)
         }
     }
 </script>

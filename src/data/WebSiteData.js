@@ -19,6 +19,7 @@ const data =
         {name: "煎蛋", url: "www.jandan.com", remark: "译介方式传播网络新鲜资讯"},
         {name: "煎蛋", url: "www.jandan.com", remark: "译介方式传播网络新鲜资讯"},
         {name: "煎蛋", url: "www.jandan.com", remark: "译介方式传播网络新鲜资讯"},
+        {name: "煎蛋", url: "www.jandan.com", remark: "译介方式传播网络新鲜资讯"},
         {name: "煎蛋", url: "www.jandan.com", remark: "译介方式传播网络新鲜资讯"}
 
     ];
@@ -30,7 +31,6 @@ const webSiteData = function () {
         tempData.pic=Mock.Random.dataImage('300x200',tempData.name );
         list.push(tempData);
     }
-    this.console.log(list)
     return list;
 }
 
