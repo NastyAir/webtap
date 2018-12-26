@@ -2,7 +2,7 @@
     <div>
         <v-toolbar color="blue" dark tabs>
             <v-text-field
-                    append-icon="mic"
+
                     class="mx-3"
                     flat
                     label="Search"
@@ -12,26 +12,25 @@
             <v-tabs
                     slot="extension"
                     v-model="check"
-                    centered
+                    grow
                     color="transparent"
                     slider-color="white"
             >
                 <v-tab v-for="(item,index) in tabs" :key="index">
-                    {{ item }}
+                    {{ item.text }}
                 </v-tab>
             </v-tabs>
         </v-toolbar>
-
         <v-tabs-items v-model="check">
             <v-tab-item v-for="(item,index) in tabs" :key="index">
                 <v-card>
                     <v-container fluid grid-list-md>
                         <v-layout row wrap>
                             <v-flex
-                                    v-for="(card,index) in cards"
+                                    v-for="(card,index) in getWebsiteData(item.type)"
                                     :key="index"
-                                    xs6 md3 xl2>
-                                <v-card>
+                                    xs12 md3 xl2>
+                                <v-card @click="openUrl(card.url)">
                                     <v-img :src="card.pic" height="200px"></v-img>
                                     <v-card-title primary-title>
                                         <div>
@@ -49,15 +48,28 @@
     </div>
 </template>
 <script>
-    import data from '../data/WebSiteData'
+    import mydata from '../data/GetData'
 
     export default {
         data() {
             return {
                 check: null,
-                tabs: ["常用站点", "知识学习", "娱乐摸鱼"],
+                tabs: [
+                    {text: "常用站点", type: "popular"},
+                    {text: "知识学习", type: "learn"},
+                    {text: "娱乐摸鱼", type: "pastime"},
+                ],
                 // tabs: ["站点导航", "知识学习", "生活分享"],
-                cards: data(),
+
+            }
+        },
+        methods: {
+            openUrl(url) {
+                window.console.log(url);
+                window.open(url);
+            },
+            getWebsiteData(type) {
+                return mydata(type)
             }
         }
     }
