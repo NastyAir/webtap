@@ -11,4 +11,5 @@ module.exports = {
         // before: app => {
         // }
     },
+    baseUrl: process.env.NODE_ENV === 'production' ? '/webtap/' : '/',
 }
